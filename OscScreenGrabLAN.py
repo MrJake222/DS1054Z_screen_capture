@@ -79,8 +79,6 @@ def print_help():
     print ("Usage examples:")
     print ("    " + "python " + script_name + " png")
     print ("    " + "python " + script_name + " csv 192.168.1.3")
-    print ()
-    print ("The following usage cases are not yet implemented:")
     print ("    " + "python " + script_name + " bmp 192.168.1.3 my_place_for_captures")
     print ()
     print ("This program captures either the waveform or the whole screen")
