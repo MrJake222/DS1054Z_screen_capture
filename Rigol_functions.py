@@ -1,16 +1,19 @@
 import pip
 import sys
 import logging
+import importlib.metadata
 
 __author__ = 'RoGeorge'
 
-
+    
 def log_running_python_versions():
-    logging.info("Python version: " + str(sys.version) + ", " + str(sys.version_info))  # () required in Python 3.
-
-    installed_packages = pip.get_installed_distributions()
-    installed_packages_list = sorted(["%s==%s" % (i.key, i.version) for i in installed_packages])
-    logging.info("Installed Python modules: " + str(installed_packages_list))
+    logging.info("Python version: " + str(sys.version) + ", " + str(sys.version_info))
+    
+    installed_packages = sorted([
+        f"{dist.metadata['Name']}=={dist.version}"
+        for dist in importlib.metadata.distributions()
+    ])
+    logging.info("Installed Python modules: " + str(installed_packages))
 
 
 def command(tn, scpi):
